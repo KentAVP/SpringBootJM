@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Управление пользователями</title>
+</head>
+<body>
+<center>
+    <h1>Выберите</h1>
+    <h2>
+        <a href="new">Добавить пользователя</a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="list">Список всех пользователей</a>
+
+    </h2>
+</center>
+<div align="center">
+
+    <form action="#" th:action="@{insert}" th:object="${user}" method="post">
+            <table border="1" cellpadding="5">
+                <caption>
+                    <h2>
+                       Добавить
+                        </h2>
+                </caption>
+                <tr>
+                    <th>Имя пользователя: </th>
+                    <td>
+                        <input type="text" th:field="*{name}" id="name" placeholder="name">
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Возраст: </th>
+                    <td>
+                        <input type="text" th:field="*{age}" id="age" placeholder="age">
+                        <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Username: </th>
+                    <td>
+                        <input type="text" th:field="*{username}" id="username" placeholder="username">
+                        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Password: </th>
+                    <td>
+                        <input type="password" th:field="*{password}" id="password" placeholder="password">
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Save" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+</div>
+</body>
+</html>
